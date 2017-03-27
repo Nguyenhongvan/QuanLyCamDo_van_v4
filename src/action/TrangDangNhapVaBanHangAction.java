@@ -31,8 +31,9 @@ public class TrangDangNhapVaBanHangAction extends Action {
 		String matKhau = trangDangNhapVaBanHangForm.getMatKhau();
 		System.out.println(taiKhoan + matKhau);
 		NguoiDungBO nguoiDungBO = new NguoiDungBO();
-		if("submit".equals(trangDangNhapVaBanHangForm.getSubmit())) {
+		if("Dang nhap".equals(trangDangNhapVaBanHangForm.getSubmit())) {
 			if(nguoiDungBO.checkLogin(taiKhoan, matKhau)) {
+				System.out.println("Login successful!!");
 				return mapping.findForward("trangadmin");
 			} else {
 				return mapping.findForward("trangchu");

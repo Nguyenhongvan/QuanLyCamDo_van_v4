@@ -18,8 +18,7 @@ public class NguoiDungDAO {
 	String userName = "sa";
 	String password = "12345678";
 	Connection connection;
-	 
-	// hàm kết nối vào cơ sở du liệu
+	
 	void connect(){
 		try {
 			Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
@@ -33,27 +32,26 @@ public class NguoiDungDAO {
 			System.out.println("Ket noi loi");
 		}
 	}
-	
+
 	// ham kiem tra dang nhap vao he thong
 	public boolean checkLogin(String taiKhoan, String matKhau) {
-		String sql = String.format("SELECT TaiKhoan, MatKhau FROM NguoiDung WHERE TaiKhoan = '%s',"
-				+ "MatKhau = '%s'", taiKhoan, matKhau);
+		connect();
+		String sql=	String.format("SELECT * FROM NguoiDung WHERE TaiKhoan = '%s' AND MatKhau = '%s'", taiKhoan, matKhau);
 		ResultSet rs = null;
 		try {
 			Statement stmt = connection.createStatement();
 			rs = stmt.executeQuery(sql);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			if (rs.next()) {
-				
+			if(rs.next()){
 				return true;
 			}
 		} catch (SQLException e) {
-			System.out.println("Dang nhap that bai");
+			e.printStackTrace();
 		}
 		return false;
 	}
+	
 }

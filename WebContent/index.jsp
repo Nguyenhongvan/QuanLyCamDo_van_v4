@@ -482,7 +482,7 @@
 		            	</div>
 		            	<div class="col-sm-12">
 			              	<div class="col-sm-6">
-			              		 <html:submit property="submit" value="Đăng nhập" styleClass="btn btn-success btn-block">
+			              		 <html:submit property="submit" value="Dang nhap" styleClass="btn btn-success btn-block">
 			              		 	<span class="fa fa-power-off" aria-hidden="true"></span>
 			              		 </html:submit>
 			              	</div>
