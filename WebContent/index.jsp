@@ -384,7 +384,14 @@
 				</div>
 				<div id="bookshelf" class="bookshelf products-box">
 					<!-- Book Item-->
-					
+					<logic:present property="danhSachTaiSan" name="danhSachTaiSanForm">
+						<logic:iterate id="taisanthanhly" property="danhSachTaiSan" name="danhSachTaiSanForm">
+							<div class="book" data-book="book-1">
+								
+							</div>
+							<bean:write name="taisanthanhly" property="tenTaiSan"/>
+						</logic:iterate>
+					</logic:present>
 					<!--End Book Item-->
 				</div>
 				<div class="title-section">

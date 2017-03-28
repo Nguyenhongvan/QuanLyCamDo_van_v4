@@ -3,7 +3,11 @@
  */
 package form;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
+
+import model.bean.TaiSan;
 
 import org.apache.struts.action.ActionErrors;
 import org.apache.struts.action.ActionForm;
@@ -25,20 +29,8 @@ public class TrangDangNhapVaBanHangForm extends ActionForm {
 	private String taiKhoan = null;
 	private String matKhau = null;
 	private String thongBao;
+	private ArrayList<TaiSan> danhSachTaiSan;
 	private String submit;
-	
-	// ham tao mac dinh
-	public TrangDangNhapVaBanHangForm() {
-		super();
-	}
-	
-	// ham tao co doi so
-	public TrangDangNhapVaBanHangForm(String taiKhoan, String matKhau, String thongBao) {
-		super();
-		this.taiKhoan = taiKhoan;
-		this.matKhau = matKhau;
-		this.thongBao = thongBao;
-	}
 	
 	/**
 	 * 
@@ -104,6 +96,14 @@ public class TrangDangNhapVaBanHangForm extends ActionForm {
 		this.thongBao = thongBao;
 	}
 	
+	public ArrayList<TaiSan> getDanhSachTaiSan() {
+		return danhSachTaiSan;
+	}
+
+	public void setDanhSachTaiSan(ArrayList<TaiSan> danhSachTaiSan) {
+		this.danhSachTaiSan = danhSachTaiSan;
+	}
+
 	/* (non-Javadoc)
 	 * @see org.apache.struts.action.ActionForm#validate(org.apache.struts.action.ActionMapping, javax.servlet.http.HttpServletRequest)
 	 */

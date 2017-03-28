@@ -3,6 +3,8 @@
  */
 package action;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,7 +14,9 @@ import org.apache.struts.action.ActionForward;
 import org.apache.struts.action.ActionMapping;
 
 import form.TrangDangNhapVaBanHangForm;
+import model.bean.TaiSan;
 import model.bo.NguoiDungBO;
+import model.bo.TaiSanBO;
 
 /**
  * @author keeps
@@ -39,6 +43,12 @@ public class TrangDangNhapVaBanHangAction extends Action {
 				return mapping.findForward("trangchu");
 			}
 		} 
+		
+		// hien thi danh sach tai san thanh ly
+		ArrayList<TaiSan> danhSachTaiSan = new ArrayList<>();
+		TaiSanBO taiSanBO = new TaiSanBO();
+		danhSachTaiSan = taiSanBO.hienThiDanhSachTaiSan();
+		trangDangNhapVaBanHangForm.setDanhSachTaiSan(danhSachTaiSan);
 		return mapping.getInputForward();
 	}
 }
